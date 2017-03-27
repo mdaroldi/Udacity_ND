@@ -11800,7 +11800,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries</span>
@@ -11852,14 +11852,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Calculate number of students</span>
 <span class="n">n_students</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 
 <span class="c1"># TODO: Calculate number of features</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">size</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># TODO: Calculate passing students</span>
 <span class="n">n_passed</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">passed</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="s1">&#39;yes&#39;</span><span class="p">]</span>
@@ -11868,7 +11868,7 @@ div#notebook {
 <span class="n">n_failed</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">passed</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span>
 
 <span class="c1"># TODO: Calculate graduation rate</span>
-<span class="n">grad_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span><span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
+<span class="n">grad_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span> <span class="o">*</span> <span class="mf">100.0</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
 
 <span class="c1"># Print the results</span>
 <span class="k">print</span> <span class="s2">&quot;Total number of students: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
@@ -11889,10 +11889,10 @@ div#notebook {
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 395
-Number of features: 31
+Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
-Graduation rate of the class: 0.67%
+Graduation rate of the class: 67.09%
 </pre>
 </div>
 </div>
@@ -11915,7 +11915,7 @@ Graduation rate of the class: 0.67%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Extract feature columns</span>
@@ -11997,7 +11997,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -12068,7 +12068,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import any additional functionality you may need here</span>
@@ -12080,7 +12080,7 @@ Feature values:
 <span class="n">num_test</span> <span class="o">=</span> <span class="n">X_all</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">num_train</span>
 
 <span class="c1"># TODO: Shuffle and split the dataset into the number of training and testing points above</span>
-<span class="n">X_train</span> <span class="p">,</span><span class="n">X_test</span> <span class="p">,</span><span class="n">y_train</span> <span class="p">,</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.757</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">X_train</span> <span class="p">,</span><span class="n">X_test</span> <span class="p">,</span><span class="n">y_train</span> <span class="p">,</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.24</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Show the results of the split</span>
 <span class="k">print</span> <span class="s2">&quot;Training set has {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -12097,8 +12097,16 @@ Feature values:
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Training set has 95 samples.
-Testing set has 300 samples.
+<pre>Training set has 300 samples.
+Testing set has 95 samples.
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/mauricioaroldi/anaconda/lib/python2.7/site-packages/sklearn/cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+  &#34;This module will be removed in 0.20.&#34;, DeprecationWarning)
 </pre>
 </div>
 </div>
@@ -12188,7 +12196,7 @@ Testing set has 300 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -12275,23 +12283,28 @@ Testing set has 300 samples.
 <span class="n">clf_C</span> <span class="o">=</span> <span class="n">AdaBoostClassifier</span><span class="p">()</span>
 
 <span class="c1"># TODO: Set up the training set sizes</span>
-<span class="n">X_train_100</span><span class="p">,</span> <span class="n">X_test_100</span><span class="p">,</span> <span class="n">y_train_100</span> <span class="p">,</span> <span class="n">y_test_100</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">X_train_200</span><span class="p">,</span> <span class="n">X_test_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span>  <span class="n">y_test_200</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">X_train_300</span><span class="p">,</span> <span class="n">X_test_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span>  <span class="n">y_test_300</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">X_train_100</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">100</span><span class="p">,:]</span>
+<span class="n">y_train_100</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+
+<span class="n">X_train_200</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">200</span><span class="p">,:]</span>
+<span class="n">y_train_200</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">200</span><span class="p">]</span>
+
+<span class="n">X_train_300</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">300</span><span class="p">,:]</span>
+<span class="n">y_train_300</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">300</span><span class="p">]</span>
 
 <span class="c1"># TODO: Execute the &#39;train_predict&#39; function for each classifier and each training set size</span>
 <span class="c1"># train_predict(clf, X_train, y_train, X_test, y_test)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test_100</span><span class="p">,</span> <span class="n">y_test_100</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test_200</span><span class="p">,</span> <span class="n">y_test_200</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test_300</span><span class="p">,</span> <span class="n">y_test_300</span><span class="p">)</span>
+<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_B</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test_100</span><span class="p">,</span> <span class="n">y_test_100</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_B</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test_200</span><span class="p">,</span> <span class="n">y_test_200</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_B</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test_300</span><span class="p">,</span> <span class="n">y_test_300</span><span class="p">)</span>
+<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_B</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_B</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_B</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test_100</span><span class="p">,</span> <span class="n">y_test_100</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test_200</span><span class="p">,</span> <span class="n">y_test_200</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test_300</span><span class="p">,</span> <span class="n">y_test_300</span><span class="p">)</span>
+<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12305,58 +12318,58 @@ Testing set has 300 samples.
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a LinearSVC using a training set size of 100. . .
-Trained model in 0.0108 seconds
-Made predictions in 0.0010 seconds.
-F1 score for training set: 0.9419.
-Made predictions in 0.0006 seconds.
-F1 score for test set: 0.6737.
+Trained model in 0.0110 seconds
+Made predictions in 0.0940 seconds.
+F1 score for training set: 0.8841.
+Made predictions in 0.0008 seconds.
+F1 score for test set: 0.7424.
 Training a LinearSVC using a training set size of 200. . .
-Trained model in 0.0201 seconds
+Trained model in 0.0194 seconds
 Made predictions in 0.0006 seconds.
-F1 score for training set: 0.8498.
+F1 score for training set: 0.8312.
 Made predictions in 0.0006 seconds.
-F1 score for test set: 0.7304.
+F1 score for test set: 0.7778.
 Training a LinearSVC using a training set size of 300. . .
-Trained model in 0.0330 seconds
-Made predictions in 0.0006 seconds.
-F1 score for training set: 0.8337.
-Made predictions in 0.0005 seconds.
-F1 score for test set: 0.7724.
+Trained model in 0.0309 seconds
+Made predictions in 0.0007 seconds.
+F1 score for training set: 0.8404.
+Made predictions in 0.0004 seconds.
+F1 score for test set: 0.7786.
 Training a LogisticRegression using a training set size of 100. . .
-Trained model in 0.0015 seconds
-Made predictions in 0.0005 seconds.
-F1 score for training set: 0.9412.
-Made predictions in 0.0005 seconds.
-F1 score for test set: 0.7268.
-Training a LogisticRegression using a training set size of 200. . .
-Trained model in 0.0025 seconds
+Trained model in 0.0054 seconds
 Made predictions in 0.0006 seconds.
-F1 score for training set: 0.8710.
-Made predictions in 0.0004 seconds.
-F1 score for test set: 0.7528.
+F1 score for training set: 0.8571.
+Made predictions in 0.0005 seconds.
+F1 score for test set: 0.7612.
+Training a LogisticRegression using a training set size of 200. . .
+Trained model in 0.0026 seconds
+Made predictions in 0.0006 seconds.
+F1 score for training set: 0.8380.
+Made predictions in 0.0005 seconds.
+F1 score for test set: 0.7794.
 Training a LogisticRegression using a training set size of 300. . .
-Trained model in 0.0034 seconds
-Made predictions in 0.0004 seconds.
+Trained model in 0.0035 seconds
+Made predictions in 0.0006 seconds.
 F1 score for training set: 0.8381.
 Made predictions in 0.0005 seconds.
 F1 score for test set: 0.7910.
 Training a AdaBoostClassifier using a training set size of 100. . .
-Trained model in 0.1688 seconds
-Made predictions in 0.0077 seconds.
-F1 score for training set: 0.9932.
-Made predictions in 0.0100 seconds.
-F1 score for test set: 0.7044.
-Training a AdaBoostClassifier using a training set size of 200. . .
-Trained model in 0.1667 seconds
+Trained model in 0.1668 seconds
 Made predictions in 0.0072 seconds.
-F1 score for training set: 0.9013.
-Made predictions in 0.0160 seconds.
-F1 score for test set: 0.7435.
+F1 score for training set: 0.9538.
+Made predictions in 0.0066 seconds.
+F1 score for test set: 0.7200.
+Training a AdaBoostClassifier using a training set size of 200. . .
+Trained model in 0.1467 seconds
+Made predictions in 0.0078 seconds.
+F1 score for training set: 0.8826.
+Made predictions in 0.0066 seconds.
+F1 score for test set: 0.8058.
 Training a AdaBoostClassifier using a training set size of 300. . .
-Trained model in 0.1872 seconds
-Made predictions in 0.0090 seconds.
+Trained model in 0.1675 seconds
+Made predictions in 0.0135 seconds.
 F1 score for training set: 0.8688.
-Made predictions in 0.0096 seconds.
+Made predictions in 0.0065 seconds.
 F1 score for test set: 0.7794.
 </pre>
 </div>
@@ -12394,24 +12407,24 @@ F1 score for test set: 0.7794.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0108</td>
-<td style="text-align:center">0.0010</td>
-<td style="text-align:center">0.9419</td>
-<td style="text-align:center">0.6737</td>
+<td style="text-align:center">0.0110</td>
+<td style="text-align:center">0.0008</td>
+<td style="text-align:center">0.8841</td>
+<td style="text-align:center">0.7424</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0201</td>
+<td style="text-align:center">0.0194</td>
 <td style="text-align:center">0.0006</td>
-<td style="text-align:center">0.8498</td>
-<td style="text-align:center">0.7304</td>
+<td style="text-align:center">0.8312</td>
+<td style="text-align:center">0.7778</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0330</td>
-<td style="text-align:center">0.0006</td>
-<td style="text-align:center">0.8337</td>
-<td style="text-align:center">0.7724</td>
+<td style="text-align:center">0.0309</td>
+<td style="text-align:center">0.0004</td>
+<td style="text-align:center">0.8404</td>
+<td style="text-align:center">0.7786</td>
 </tr>
 </tbody>
 </table>
@@ -12428,22 +12441,22 @@ F1 score for test set: 0.7794.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0015</td>
+<td style="text-align:center">0.0054</td>
 <td style="text-align:center">0.0005</td>
-<td style="text-align:center">0.9412</td>
-<td style="text-align:center">0.7268</td>
+<td style="text-align:center">0.8571</td>
+<td style="text-align:center">0.7612</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0025</td>
-<td style="text-align:center">0.0006</td>
-<td style="text-align:center">0.8710</td>
-<td style="text-align:center">0.7528</td>
+<td style="text-align:center">0.0026</td>
+<td style="text-align:center">0.0005</td>
+<td style="text-align:center">0.8380</td>
+<td style="text-align:center">0.7794</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0034</td>
-<td style="text-align:center">0.0004</td>
+<td style="text-align:center">0.0035</td>
+<td style="text-align:center">0.0005</td>
 <td style="text-align:center">0.8381</td>
 <td style="text-align:center">0.7910</td>
 </tr>
@@ -12462,22 +12475,22 @@ F1 score for test set: 0.7794.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.1688</td>
-<td style="text-align:center">0.0077</td>
-<td style="text-align:center">0.9932</td>
-<td style="text-align:center">0.7044</td>
+<td style="text-align:center">0.1668</td>
+<td style="text-align:center">0.0066</td>
+<td style="text-align:center">0.9538</td>
+<td style="text-align:center">0.7200</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.1667</td>
-<td style="text-align:center">0.0072</td>
-<td style="text-align:center">0.9013</td>
-<td style="text-align:center">0.7435</td>
+<td style="text-align:center">0.1467</td>
+<td style="text-align:center">0.0066</td>
+<td style="text-align:center">0.8826</td>
+<td style="text-align:center">0.8058</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.1872</td>
-<td style="text-align:center">0.0090</td>
+<td style="text-align:center">0.1675</td>
+<td style="text-align:center">0.0065</td>
 <td style="text-align:center">0.8688</td>
 <td style="text-align:center">0.7794</td>
 </tr>
@@ -12532,7 +12545,8 @@ F1 score for test set: 0.7794.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> The chosen model process the available data, and in each iteration, depending on the result, an extra weight is given to the incorrectly sorted. The process is repeated several times, so it is possible to divide the results and increasingly have more accurate answers. So, with this model, after training the data, the predictions will be quickly returned, with high hit rates, making it possible to help a bigger number of the students that really need help.</p>
+<p><strong>Answer: </strong> 
+The chosen model processes the data of students who already passed/failed to make predictions for current/future students. The algorithm combines several learners that form a group that will be able to point whether a student will pass or not. During several rounds of training the model to make better predictions, the algorithm looks at wrong predictions and gives more weight to the misclassified students. At each round, the Adaboost model finds the best learner to incorporate into the ensemble, making sure that the highly weighted observations are classified correctly inthe next round. After a predetermined number of rounds, it takes a weighted mean of the learners to return the score. So, using this model created with previous students, we can feed the new students' data and have a pretty good prediction of their academic performance soon enough to avoid fail or dropout.</p>
 
 </div>
 </div>
@@ -12563,27 +12577,37 @@ F1 score for test set: 0.7794.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;GridSearchCV&#39; and &#39;make_scorer&#39;</span>
 <span class="kn">from</span> <span class="nn">sklearn.grid_search</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span><span class="p">,</span> <span class="n">f1_score</span>
+<span class="c1">#from sklearn.tree import DecisionTreeClassifier</span>
 
 <span class="c1"># TODO: Create the parameters list you wish to tune</span>
-<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">],</span> <span class="s1">&#39;learning_rate&#39;</span><span class="p">:[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">1.0</span><span class="p">],</span> <span class="s1">&#39;algorithm&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SAMME&#39;</span><span class="p">,</span> <span class="s1">&#39;SAMME.R&#39;</span><span class="p">]}</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">],</span>
+              <span class="s1">&#39;learning_rate&#39;</span><span class="p">:[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">1.0</span><span class="p">],</span> 
+              <span class="s1">&#39;algorithm&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SAMME&#39;</span><span class="p">,</span> <span class="s1">&#39;SAMME.R&#39;</span><span class="p">],</span>
+              <span class="p">}</span>
+<span class="c1">#parameters = {&#39;n_estimators&#39;:[50, 120], </span>
+<span class="c1">#              &#39;learning_rate&#39;:[0.1, 0.5, 1.],</span>
+<span class="c1">#              &#39;base_estimator__min_samples_split&#39; : np.arange(2, 8, 2),</span>
+<span class="c1">#              &#39;base_estimator__max_depth&#39; : np.arange(1, 4, 1)</span>
+<span class="c1">#             }</span>
 
 <span class="c1"># TODO: Initialize the classifier</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">AdaBoostClassifier</span><span class="p">()</span>
+<span class="c1">#clf = AdaBoostClassifier(base_estimator=DecisionTreeClassifier(random_state=42))</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">AdaBoostClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># TODO: Make an f1 scoring function using &#39;make_scorer&#39; </span>
 <span class="n">f1_scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s1">&#39;yes&#39;</span><span class="p">)</span>
 
 <span class="c1"># TODO: Perform grid search on the classifier using the f1_scorer as the scoring method</span>
-<span class="n">grid_obj</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1_scorer</span><span class="p">)</span> 
+<span class="n">grid_obj</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1_scorer</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># TODO: Fit the grid search object to the training data and find the optimal parameters</span>
-<span class="n">grid_obj</span> <span class="o">=</span> <span class="n">grid_obj</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">)</span>
+<span class="n">grid_obj</span> <span class="o">=</span> <span class="n">grid_obj</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Get the estimator</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">grid_obj</span><span class="o">.</span><span class="n">best_estimator_</span>
@@ -12603,10 +12627,31 @@ F1 score for test set: 0.7794.
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Made predictions in 0.0011 seconds.
-Tuned model has a training F1 score of 0.8537.
-Made predictions in 0.0017 seconds.
-Tuned model has a testing F1 score of 0.8209.
+<pre>Fitting 3 folds for each of 48 candidates, totalling 144 fits
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>[Parallel(n_jobs=-1)]: Done 116 tasks      | elapsed:    7.9s
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Made predictions in 0.0016 seconds.
+Tuned model has a training F1 score of 0.8330.
+Made predictions in 0.0014 seconds.
+Tuned model has a testing F1 score of 0.8028.
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>[Parallel(n_jobs=-1)]: Done 144 out of 144 | elapsed:   10.0s finished
 </pre>
 </div>
 </div>
@@ -12630,7 +12675,7 @@ Tuned model has a testing F1 score of 0.8209.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> Tuned model has a training F1 score of 0.8537, and testing F1 score of 0.8209. It did slightly better on the testing F1 score, but the huge difference was in the processing time of the training - approximately 153 times faster than the untuned model!</p>
+<p><strong>Answer: </strong> Tuned model has a training F1 score of 0.8330, and testing F1 score of 0.8028. It did slightly better on the testing F1 score, but the huge difference was in the processing time of the training - approximately 120 times faster than the untuned model!</p>
 
 </div>
 </div>
