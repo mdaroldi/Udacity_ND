@@ -86,7 +86,8 @@ class LearningAgent(Agent):
         for a in self.Q[state]:
             if maxQ < self.Q[state][a]:
                 maxQ = self.Q[state][a]
-
+        #sugestao do corretor da Udacity, mas nao funcionou - AttributeError: 'tuple' object has no attribute 'values'
+        #maxQ = max(state.values())
         return maxQ 
 
 
@@ -150,7 +151,7 @@ class LearningAgent(Agent):
         # When learning, implement the value iteration update rule
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
         if self.learning:
-            self.Q[state][action] = self.Q[state][action] + self.alpha * (reward - self.Q[state][action])
+            self.Q[state][action] += self.alpha * (reward - self.Q[state][action])
 
         return
 
